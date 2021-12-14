@@ -6,7 +6,8 @@ T Check::inputCheck(const char* output)
 	T temp;
 	while (true)
 	{
-		std::cout << output << ": ";
+		std::cout << output 
+			<< "\n\nEnter: ";
 		std::cin >> temp;
 		std::cin.ignore(32767, '\n');
 		if (std::cin.fail())
