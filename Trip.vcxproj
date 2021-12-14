@@ -123,11 +123,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Check.inl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Participant.cpp" />
     <ClCompile Include="Spend.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Check.h" />
     <ClInclude Include="Participant.h" />
     <ClInclude Include="Spend.h" />
   </ItemGroup>
