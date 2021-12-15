@@ -7,7 +7,11 @@ const char* Participant::getClassName()
 {
 	return m_className;
 }
-;
+
+void Participant::setName()
+{
+	m_name = Check::inputCheck<std::string>("Enter participant name");
+}
 
 std::ostream& operator<<(std::ostream& out, const Participant& participant)
 {

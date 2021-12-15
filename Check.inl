@@ -14,6 +14,7 @@ T Check::inputCheck(const char* output)
 		{
 			std::cin.clear();
 			std::cin.ignore(32767, '\n');
+			std::cout << "Try again!";
 		}
 		else
 			return temp;

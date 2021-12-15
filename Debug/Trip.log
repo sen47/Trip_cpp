@@ -1,2 +1,3 @@
 ﻿  Main.cpp
+C:\Projects VS\Trip\Main.cpp(113): warning C4715: getVectorName: значение возвращается не при всех путях выполнения
   Trip.vcxproj -> C:\Projects VS\Trip\Debug\Trip.exe
