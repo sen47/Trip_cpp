@@ -1,2 +1,5 @@
-﻿  Main.cpp
-  Trip.vcxproj -> C:\Projects VS\Trip\Debug\Trip.exe
+﻿  Trip.cpp
+C:\Project_VS\Trip_cpp\Trip.cpp(92,24): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Project_VS\Trip_cpp\Trip.cpp(102,24): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Project_VS\Trip_cpp\Trip.cpp(26): warning C4715: Trip::getVectorName: значение возвращается не при всех путях выполнения
+  Trip.vcxproj -> C:\Project_VS\Trip_cpp\Debug\Trip.exe

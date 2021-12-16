@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string>
 #include<vector>
-#include<functional>
+//#include<functional>
 #include<cassert>
 
 #include"Participant.h"
@@ -15,7 +15,7 @@
 
 enum uAnswer
 {
-	Exit, New, Next
+	Exit, New, Delete, Next, uAnswerMax
 };
 
 int baseMenu(const char* whatAdd, const chooseVector current, const Trip& trip);
@@ -34,6 +34,9 @@ int main()
 		{
 		case uAnswer::New:
 			trip.addToVector(currentVector);
+			break;
+		case uAnswer::Delete:
+			trip.chooseToDelete(currentVector);
 			break;
 		case uAnswer::Next:
 		{
@@ -58,7 +61,8 @@ int baseMenu(const char* whatAdd, const chooseVector current, const Trip& trip)
 	do
 	{
 		std::cout << "Enter \" 1 \" to add new " << whatAdd
-			<< "\nEnter \" 2 \" to go to next menu"
+			<< "\nEnter \" 2 \" to delete element"
+			<< "\nEnter \" 3 \" to go to next menu"
 			<< "\nEnter \" 0 \" to exit";
 		
 		trip.showVector(current);
@@ -67,10 +71,10 @@ int baseMenu(const char* whatAdd, const chooseVector current, const Trip& trip)
 
 		system("cls");
 
-		if (answer < 0 || answer>2) //checking input value, for possible value
+		if (answer < 0 || answer >= uAnswerMax) //checking input value, for possible value
 			std::cout << "Try again\n";
 
-	} while (answer < 0 || answer > 2);
+	} while (answer < 0 || answer >= uAnswerMax);
 	
 	return answer;
 }

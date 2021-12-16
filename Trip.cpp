@@ -65,18 +65,26 @@ void Trip::showParticipants() const
 {
 	if (!participants.size())
 		return;
+	int i = 1;
 	std::cout << "\n\nParticipants:\n";
 	for (const auto& el : participants)
-		std::cout << el << std::endl;
+	{
+		std::cout << i << " - " << el << std::endl;
+		++i;
+	}
 }
 
 void Trip::showSpends() const
 {
 	if (!spends.size())
 		return;
+	int i = 1;
 	std::cout << "\n\nSpends:\n";
 	for (const auto& el : spends)
-		std::cout << el << std::endl;
+	{
+		std::cout << i << " - " << el << std::endl;
+		++i;
+	}
 }
 
 void Trip::deleteParticipant(const int number)
@@ -97,4 +105,23 @@ void Trip::deleteSpend(const int number)
 	for (int i = 1; i < number; ++i, ++el)
 		;
 	spends.erase(el);
+}
+
+void Trip::chooseToDelete(const chooseVector& current)
+{
+	int number = 0;
+	switch (current)
+	{
+	case chooseVector::Participant:
+		showParticipants();
+		number = Check::inputCheck<int>("Enter number need to delete");
+		deleteParticipant(number);
+		break;
+	case chooseVector::Spend:
+		showSpends();
+		number = Check::inputCheck<int>("Enter number need to delete");
+		deleteSpend(number);
+		break;
+	}
+	system("cls");
 }

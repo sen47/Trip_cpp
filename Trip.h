@@ -25,6 +25,7 @@ public:
 	void showVector(const chooseVector current) const;
 	void deleteParticipant(const int number);
 	void deleteSpend(const int number);
+	void chooseToDelete(const chooseVector& current);
 	//distributePersonToSpend();
 	//resetPersonOfSpend();
 
