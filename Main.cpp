@@ -18,8 +18,7 @@ enum uAnswer
 	Exit, New, Next
 };
 
-int baseMenu(const char* whatAdd);
-const char* getVectorName(chooseVector current);
+int baseMenu(const char* whatAdd, const chooseVector current, const Trip& trip);
 
 int main()
 {	
@@ -29,7 +28,8 @@ int main()
 	
 	while (currentVector<chooseVector::MaxChoose)
 	{
-		answer = baseMenu(getVectorName(currentVector));
+		answer = baseMenu(trip.getVectorName(currentVector), currentVector, trip);
+
 		switch (answer)
 		{
 		case uAnswer::New:
@@ -48,18 +48,11 @@ int main()
 		}
 	}
 	
-	for (auto el : trip.participants)
-		std::cout << el << std::endl;
-	
-	NL NL;
-
-	for (auto el : trip.spends)
-		std::cout << el << std::endl;
 
 	return 0;
 }
 
-int baseMenu(const char* whatAdd)
+int baseMenu(const char* whatAdd, const chooseVector current, const Trip& trip)
 {
 	int answer;
 	do
@@ -67,6 +60,9 @@ int baseMenu(const char* whatAdd)
 		std::cout << "Enter \" 1 \" to add new " << whatAdd
 			<< "\nEnter \" 2 \" to go to next menu"
 			<< "\nEnter \" 0 \" to exit";
+		
+		trip.showVector(current);
+		
 		answer = Check::inputCheck<int>(); //checking input value, for match data type
 
 		system("cls");
@@ -77,17 +73,4 @@ int baseMenu(const char* whatAdd)
 	} while (answer < 0 || answer > 2);
 	
 	return answer;
-}
-
-const char* getVectorName(chooseVector current)
-{
-	switch (current)
-	{
-	case chooseVector::Participant:
-		return Participant::getClassName();
-		break;
-	case chooseVector::Spend:
-		return Spend::getClassName();
-		break;
-	}
 }
