@@ -27,6 +27,9 @@
     <ClCompile Include="Check.inl">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Trip.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Participant.h">
@@ -36,6 +39,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Check.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Trip.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

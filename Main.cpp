@@ -7,6 +7,7 @@
 #include"Participant.h"
 #include"Spend.h"
 #include"Check.h"
+#include"Trip.h"
 #define DEBUG
 #ifdef DEBUG
 #define NL std::cout<<std::endl;
@@ -17,30 +18,22 @@ enum uAnswer
 	Exit, New, Next
 };
 
-enum class chooseVector
-{
-	Participant, Spend, MaxChoose
-};
-
 int baseMenu(const char* whatAdd);
-void addParticipant(std::vector<Participant>& participants);
-void addSpending(std::vector<Spend>& spends);
-void addToVector(const chooseVector current, std::vector<Participant>&participants, std::vector<Spend>&spends);
 const char* getVectorName(chooseVector current);
 
 int main()
 {	
-	std::vector<Participant>participants;
-	std::vector<Spend>spends;
+	Trip trip;
 	int answer=0;
 	chooseVector currentVector{ chooseVector::Participant };
+	
 	while (currentVector<chooseVector::MaxChoose)
 	{
 		answer = baseMenu(getVectorName(currentVector));
 		switch (answer)
 		{
 		case uAnswer::New:
-			addToVector(currentVector, participants, spends);
+			trip.addToVector(currentVector);
 			break;
 		case uAnswer::Next:
 		{
@@ -55,12 +48,12 @@ int main()
 		}
 	}
 	
-	for (auto el : participants)
+	for (auto el : trip.participants)
 		std::cout << el << std::endl;
 	
 	NL NL;
 
-	for (auto el : spends)
+	for (auto el : trip.spends)
 		std::cout << el << std::endl;
 
 	return 0;
@@ -86,19 +79,6 @@ int baseMenu(const char* whatAdd)
 	return answer;
 }
 
-void addToVector(const chooseVector current, std::vector<Participant>& participants, std::vector<Spend>& spends)
-{
-	switch (current)
-	{
-	case chooseVector::Participant:
-		addParticipant(participants);
-		break;
-	case chooseVector::Spend:
-		addSpending(spends);
-		break;
-	}
-}
-
 const char* getVectorName(chooseVector current)
 {
 	switch (current)
@@ -110,21 +90,4 @@ const char* getVectorName(chooseVector current)
 		return Spend::getClassName();
 		break;
 	}
-}
-
-void addParticipant(std::vector<Participant>& participants)
-{
-	Participant temp;
-	temp.setName();
-	system("cls");
-	participants.emplace_back(temp);
-}
-
-void addSpending(std::vector<Spend>& spends)
-{
-	Spend temp;
-	temp.setName();
-	temp.setSum();
-	system("cls");
-	spends.emplace_back(temp);
 }

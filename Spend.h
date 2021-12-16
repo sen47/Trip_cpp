@@ -9,10 +9,8 @@ class Spend
 {
 	friend std::ostream& operator <<(std::ostream& out, const Spend& spend);
 public:
-	Spend(std::string name = "", double sum = 0);
+	Spend(const std::string name, double sum = 0);
 	static const char* getClassName();
-	void setName();
-	void setSum();
 private:
 	std::string m_name;
 	double m_sum;
