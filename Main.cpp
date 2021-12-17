@@ -59,7 +59,6 @@ int main()
 			break;
 		}
 	}
-	
 
 	return 0;
 }
@@ -77,7 +76,7 @@ int baseMenu(const char* whatAdd, const chooseVector current, const Trip& trip)
 		
 		trip.showVector(current);
 		
-		answer = Check::inputCheck<int>(); //checking input value, for match data type
+		answer = Check<int>::inputCheck(); //checking input value, for match data type
 
 		system("cls");
 

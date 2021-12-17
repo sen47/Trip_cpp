@@ -2,11 +2,11 @@
 #include<string>
 #include<iostream>
 
+template<typename T>
 class Check
 {
 public:
 	//checking input value, for match data type
-	template<typename T>
 	static T inputCheck(const char* output = "");
 };
 

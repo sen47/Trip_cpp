@@ -23,6 +23,7 @@ const char* Trip::getVectorName(chooseVector current) const
 		return Spend::getClassName();
 		break;
 	}
+	return "fail";
 }
 
 void Trip::addToVector(const chooseVector current) //choose in what vector will add
@@ -33,15 +34,15 @@ void Trip::addToVector(const chooseVector current) //choose in what vector will 
 	{
 	case chooseVector::Participant:
 
-		name = Check::inputCheck<std::string>("Enter participant name");
+		name = Check<std::string>::inputCheck("Enter participant name");
 		system("cls");
 		addParticipant(name);
 		break;
 
 	case chooseVector::Spend:
 
-		name = Check::inputCheck<std::string>("Enter name of spend");
-		sum = Check::inputCheck<double>("\nEnter spend sum");
+		name = Check<std::string>::inputCheck("Enter name of spend");
+		sum = Check<double>::inputCheck("\nEnter spend sum");
 		system("cls");
 		addSpend(name, sum);
 		break;
@@ -114,12 +115,12 @@ void Trip::chooseToDelete(const chooseVector& current)
 	{
 	case chooseVector::Participant:
 		showParticipants();
-		number = Check::inputCheck<int>("Enter number need to delete");
+		number = Check<int>::inputCheck("Enter number need to delete");
 		deleteParticipant(number);
 		break;
 	case chooseVector::Spend:
 		showSpends();
-		number = Check::inputCheck<int>("Enter number need to delete");
+		number = Check<int>::inputCheck("Enter number need to delete");
 		deleteSpend(number);
 		break;
 	}

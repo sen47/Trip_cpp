@@ -1,2 +1,9 @@
 ﻿  Main.cpp
+  Participant.cpp
+  Spend.cpp
+  Trip.cpp
+C:\Projects VS\Trip\Trip.cpp(92,24): warning C4018: >: несоответствие типов со знаком и без знака
+  Создание кода...
+C:\Projects VS\Trip\Trip.cpp(102,24): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Projects VS\Trip\Trip.cpp(26): warning C4715: Trip::getVectorName: значение возвращается не при всех путях выполнения
   Trip.vcxproj -> C:\Projects VS\Trip\Debug\Trip.exe
