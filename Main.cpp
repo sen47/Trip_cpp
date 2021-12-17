@@ -15,7 +15,7 @@
 
 enum uAnswer
 {
-	Exit, New, Delete, Next, uAnswerMax
+	Exit, New, Delete, Next, Back, uAnswerMax
 };
 
 int baseMenu(const char* whatAdd, const chooseVector current, const Trip& trip);
@@ -45,6 +45,15 @@ int main()
 			currentVector = static_cast<chooseVector>(temp);
 			break;
 		}
+		case uAnswer::Back:
+		{
+			int temp = static_cast<int>(currentVector);
+			--temp;
+			if (temp < 0)
+				break;
+			currentVector = static_cast<chooseVector>(temp);
+			break;
+		}
 		case uAnswer::Exit:
 			exit(0);
 			break;
@@ -63,6 +72,7 @@ int baseMenu(const char* whatAdd, const chooseVector current, const Trip& trip)
 		std::cout << "Enter \" 1 \" to add new " << whatAdd
 			<< "\nEnter \" 2 \" to delete element"
 			<< "\nEnter \" 3 \" to go to next menu"
+			<< "\nEnter \" 4 \" to go to previous menu"
 			<< "\nEnter \" 0 \" to exit";
 		
 		trip.showVector(current);
