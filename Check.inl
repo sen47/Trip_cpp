@@ -22,7 +22,7 @@ T Check<T>::inputCheck(const char* output)
 }
 
 //template<>
-//const char* Check<const char*>::inputCheck(const char* output)
+//std::string Check<std::string>::inputCheck(const char* output)
 //{
 //	std::string temp;
 //	while (true)
@@ -38,6 +38,6 @@ T Check<T>::inputCheck(const char* output)
 //			std::cout << "Try again!";
 //		}
 //		else
-//			return temp.c_str();
+//			return temp;
 //	}
 //}

@@ -1,13 +1,10 @@
 #include<iostream>
 #include<string>
 #include<vector>
-//#include<functional>
-#include<cassert>
 
-#include"Participant.h"
-#include"Spend.h"
 #include"Check.h"
 #include"Trip.h"
+
 #define DEBUG
 #ifdef DEBUG
 #define NL std::cout<<std::endl;
