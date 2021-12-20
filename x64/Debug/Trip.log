@@ -1,5 +1,4 @@
 ﻿  Main.cpp
   Trip.cpp
   Создание кода...
-Trip.obj : error LNK2005: "public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl Check<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >::inputCheck(char const *)" (?inputCheck@?$Check@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBD@Z) єцх юяЁхфхыхэ т Main.obj
-C:\Projects VS\Trip\x64\Debug\Trip.exe : fatal error LNK1169: юсэрЁєцхэ ьэюуюъЁрЄэю юяЁхфхыхээ√щ ёшьтюы - юфшэ шыш сюыхх
+  Trip.vcxproj -> C:\Projects VS\Trip\x64\Debug\Trip.exe

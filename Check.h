@@ -9,4 +9,12 @@ public:
 	static T inputCheck(const char* output = "");
 };
 
+//template<>
+//class Check<std::string>
+//{
+//public:
+//	//checking input value, for match data type
+//	static std::string inputCheck(const char* output = "");
+//};
+
 #include"Check.inl"
