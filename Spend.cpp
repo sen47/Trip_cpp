@@ -8,7 +8,7 @@ const std::string& Spend::getSpendName() const
 	return m_name;
 }
 
-const double& Spend::getSpendSum() const
+double Spend::getSpendSum() const
 {
 	return m_sum;
 }
@@ -27,4 +27,18 @@ std::ostream& operator<<(std::ostream& out, const Spend& spend)
 {
 	out << spend.m_name << ' ' << spend.m_sum;
 	return out;
+}
+
+//////////////////////////////////////////////////////////
+void Spend::addParticipant(const Participant* participant)
+{
+	m_participants_of_spend.emplace_back(participant);
+}
+
+bool Spend::isInParticipants(Participant* participant) const
+{
+	for (auto el : m_participants_of_spend)
+		if (el == participant)
+			return true;
+	return false;
 }

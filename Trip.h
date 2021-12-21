@@ -7,6 +7,8 @@
 #include"Participant.h"
 #include"Spend.h"
 
+#define DEBUG
+
 enum class chooseVector
 {
 	Participant, Spend, MaxChoose
@@ -32,11 +34,21 @@ public:
 	void showVector(const chooseVector& current) const;
 	const char* getVectorName(const chooseVector& current) const;
 	
-	
-	//distributePersonToSpend();
+	//////////////////////////////////////////////////////////////
+	void distributePersonToSpend();
 	//resetPersonOfSpend();
 
-private:
-	std::vector<Participant>participants;
-	std::vector<Spend>spends;
+	void showPersonAndTheirSpend();
+
+//private:
+	std::vector<Participant>participants
+#ifdef DEBUG
+	{ Participant{"a"},Participant{"b"},Participant{"c"},Participant{"d"},Participant{"e"},Participant{"f"} }
+#endif // DEBUG
+	;
+	std::vector<Spend>spends
+#ifdef DEBUG
+	{ Spend{"AA",1},Spend{"BB",2},Spend{"CC",3} }
+#endif // DEBUG
+	;
 };

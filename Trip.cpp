@@ -64,20 +64,26 @@ void Trip::addToVector(const chooseVector& current) //choose in what vector will
 {
 	std::string name = "";
 	double sum = 0;
+	int temp = 0;
+	//std::cout << "0 - to go back\n";
 	switch (current)
 	{
 	case chooseVector::Participant:
 
 		name = Check<std::string>::inputCheck("Enter participant name");
 		system("cls");
+		/*if (!std::stoi(name)) //don't work exit of adding
+			return;*/
 		addParticipant(name);
 		break;
 
 	case chooseVector::Spend:
 
 		name = Check<std::string>::inputCheck("Enter name of spend");
+		
 		sum = Check<double>::inputCheck("\nEnter spend sum");
 		system("cls");
+		
 		addSpend(name, sum);
 		break;
 	default:
@@ -142,5 +148,45 @@ const char* Trip::getVectorName(const chooseVector& current) const
 		break;
 	default:
 		throw("Try to get name non-existant vector");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+void Trip::distributePersonToSpend()
+{
+	for (auto& el_sp : spends)
+	{
+		int index = 0;
+		do
+		{
+			std::cout << "0 - to next\n";
+			std::cout << "Choose participants of " << el_sp.getSpendName();
+			int count = 0;
+
+			for (auto& el_pt : participants)
+			{
+				++count;
+				if (el_sp.isInParticipants(&el_pt))
+					continue;
+				std::cout << '\n' << count << " - " << el_pt.getParticipantName() << std::endl;
+			}
+
+			index = (Check<int>::inputCheck());
+			if (index > 0 && index <= participants.size())
+			{
+				el_sp.addParticipant(&participants[index - 1]);
+				participants[index - 1].addSpend(&el_sp);
+			}
+			system("cls");
+		} while (index != 0);
+	}
+}
+
+void Trip::showPersonAndTheirSpend()
+{
+	for (auto el : participants)
+	{
+		std::cout << '\n\n' << el.getParticipantName();
+		el.showSpend();
 	}
 }

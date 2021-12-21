@@ -13,8 +13,12 @@ public:
 	const std::string& getParticipantName() const;
 	static const char* getClassName();
 	void toClearSpendsOfParticipant();
+	/////////////////////////////////////////
+	//const Participant* operator[]
+	void addSpend(const Spend* spend);
+	void showSpend();
 private:
 	std::string m_name;
-	std::vector<Spend*>m_spends_of_participant;
+	std::vector<const Spend*>m_spends_of_participant;
 	static constexpr const char* m_className{ "Participant" };
 };

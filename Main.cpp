@@ -5,7 +5,7 @@
 #include"Check.h"
 #include"Trip.h"
 
-#define DEBUG
+//#define DEBUG
 #ifdef DEBUG
 #define NL std::cout<<std::endl;
 #endif // DEBUG
@@ -56,6 +56,22 @@ int main()
 			break;
 		}
 	}
+	/////////////////////////////////////////////////
+
+	trip.distributePersonToSpend();
+
+//#ifdef DEBUG
+//	for (auto& el_sp : trip.spends)
+//	{
+//		std::cout << "\n\n" << el_sp.getSpendName();
+//		for (auto& el_pt : el_sp.m_participants_of_spend)
+//		{
+//			std::cout << '\n' << el_pt->getParticipantName();
+//		}
+//	}
+//#endif // DEBUG
+
+	trip.showPersonAndTheirSpend();
 
 	return 0;
 }
