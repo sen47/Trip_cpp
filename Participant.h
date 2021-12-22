@@ -2,6 +2,7 @@
 #include<string>
 #include<vector>
 #include<iostream>
+#include<iomanip>
 
 class Spend;
 
@@ -15,7 +16,7 @@ public:
 	void toClearSpendsOfParticipant();
 	/////////////////////////////////////////
 	//const Participant* operator[]
-	void addSpend(const Spend* spend);
+	const int addSpend(const Spend* spend);
 	void showSpend();
 private:
 	std::string m_name;

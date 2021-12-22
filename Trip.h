@@ -7,7 +7,7 @@
 #include"Participant.h"
 #include"Spend.h"
 
-#define DEBUG
+//#define DEBUG
 
 enum class chooseVector
 {
@@ -43,12 +43,12 @@ public:
 //private:
 	std::vector<Participant>participants
 #ifdef DEBUG
-	{ Participant{"a"},Participant{"b"},Participant{"c"},Participant{"d"},Participant{"e"},Participant{"f"} }
+	{ Participant{"Aleks"},Participant{"James"},Participant{"Katy"},Participant{"Viktor"},Participant{"Amily"},Participant{"Anna"} }
 #endif // DEBUG
 	;
 	std::vector<Spend>spends
 #ifdef DEBUG
-	{ Spend{"AA",1},Spend{"BB",2},Spend{"CC",3} }
+	{ Spend{"Food",1000},Spend{"Drinks",2000},Spend{"Gas",3000} }
 #endif // DEBUG
 	;
 };

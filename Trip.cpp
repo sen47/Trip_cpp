@@ -174,8 +174,8 @@ void Trip::distributePersonToSpend()
 			index = (Check<int>::inputCheck());
 			if (index > 0 && index <= participants.size())
 			{
-				el_sp.addParticipant(&participants[index - 1]);
-				participants[index - 1].addSpend(&el_sp);
+				if (!participants[index - 1].addSpend(&el_sp)) //if add return 0, if not return 1
+					el_sp.addParticipant(&participants[index - 1]);
 			}
 			system("cls");
 		} while (index != 0);
@@ -186,7 +186,7 @@ void Trip::showPersonAndTheirSpend()
 {
 	for (auto el : participants)
 	{
-		std::cout << '\n\n' << el.getParticipantName();
+		std::cout << "\n\n" << el.getParticipantName() << ":\n";
 		el.showSpend();
 	}
 }
