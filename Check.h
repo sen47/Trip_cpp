@@ -39,11 +39,11 @@ public:
 		std::string temp;
 		while (true)
 		{
-			std::cout << output
+			std::cout << '\n' << output
 				<< "\n\nEnter: ";
 			std::getline(std::cin, temp);
 			//std::cin.ignore(32767, '\n');
-			if (std::cin.fail())
+			if (std::cin.fail() || temp == "")
 			{
 				std::cin.clear();
 				std::cin.ignore(32767, '\n');
